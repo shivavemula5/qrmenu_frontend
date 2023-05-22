@@ -1,0 +1,108 @@
+.form{
+    width: 25rem;   
+    margin : 1.5rem auto;
+}
+.title{
+    font-size: 2em;
+    font-weight: 400;
+}
+.button{
+    width: 100%;
+    margin: .5rem 0rem 0rem 0rem;
+}
+
+.placeHeading{
+    margin : 1rem 0rem
+}
+.place{
+    height: 200px;
+    border-radius: 5px;
+    opacity: .6;
+}
+.place:hover,.addPlace:hover{
+    cursor: pointer;
+    opacity: 1;
+    transition: .9s;
+}
+.placeName{
+    margin: 1rem .5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.addPlace{
+    border : 1px dashed grey;
+    height: 200px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: white;
+    width: 60%;
+    margin: 1rem auto;;
+}
+.addPlace:hover{
+    background-color: #fbfbfb;
+}
+.placeHolder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home{
+    margin: 2rem 0rem;
+}
+
+.category{
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+}
+
+.applyOpacity{
+    opacity: .4;
+}
+.removeOpacity{
+    opacity: 1;
+}
+.menuItem
+{
+    display: flex;
+    background-color: white;
+    box-shadow:  3px 3px 5px 6px #ccc;  
+    margin-bottom: 1.5rem;
+}
+.menuItem img{
+    width: 250px;
+    height: 150px;
+    background-size: cover ;
+}
+.menuItem .body{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.menuItem .headers , .menuItem .headerIcons{
+    display: flex;
+}
+.menuItem .headers{
+    justify-content: space-between
+}
+.menuItem .body h3 ,.menuItem .body .content  {
+    padding: .5rem  1rem;
+}
+.menuItem .body .content{
+    font-size: 1.3rem;
+    font-weight: bold
+}
+
+.categoryHeader {
+    display: flex;
+}
+.categoryHeader h3{
+    margin-right: 1rem;
+}
