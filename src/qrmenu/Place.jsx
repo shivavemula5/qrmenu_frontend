@@ -7,7 +7,9 @@ import MenuForm from './MenuForm'
 import MenuItem from './MenuItem'
 import { Modal } from 'react-bootstrap'
 import {AiFillDelete} from 'react-icons/ai'
+import {ImQrcode} from 'react-icons/im'
 import { toast } from 'react-toastify'
+import QRCodeMenu from './QRCodeMenu'
 
 const Place = () => {
 
@@ -15,6 +17,7 @@ const Place = () => {
     const [place,setPlace] = useState({})
     const [item,setItem] = useState({})
     const [editForm,setEditForm] = useState(false)
+    const [qrCode,setQRCode] = useState(false)
     
     const {authValue} = useContext(AuthContext)
     const params = useParams()
@@ -25,6 +28,18 @@ const Place = () => {
     const getPlace = async() => {
         const data = await authValue.GetPlace(params.id)
         setPlace(data)
+    }
+
+    const handleIncreaseTables = async(e,place_id,place_name,place_image,total_tables) => {
+        const table_count = total_tables + 1 
+        await authValue.IncreaseTables(place_id,place_name,place_image,table_count)
+        getPlace()
+    }
+
+    const handleDecreaseTables = async(e,place_id,place_name,place_image,total_tables) => {
+        const table_count = total_tables - 1 
+        await authValue.DecreaseTables(place_id,place_name,place_image,table_count)
+        getPlace()
     }
 
     const getCategories = async() => {
@@ -52,6 +67,10 @@ const Place = () => {
 
     const handleOpenEditForm = () => {setEditForm(true)}
     const handleCloseEditForm = () => {setEditForm(false)}
+
+    const handleShowQR = () => {setQRCode(true)}
+    const handleCloseQR= () => {setQRCode(false)}
+
 
     const handleEdit = async(e,place,category,item) => {
         await getMenuItem(place,category,item)
@@ -95,14 +114,15 @@ const Place = () => {
                 <Modal.Body><MenuForm item={item} finishTask={finishTask} itemCategoryName={getCategoryName()} /></Modal.Body>
             </Modal>
 
-            <Row>
+            <Row className='justify-content-around'>
                 <Col lg={12}>
                     <div className='mb-4'>
-                        <div className='d-flex align-items-center'>
+                        <div className='d-flex align-items-center justify-content-between mb-4 mt-4'>
                             <Button variant='link' onClick={goBack}><IoMdArrowBack size={25} color='black' /></Button>
                             <h3 className='mb-0 ml-2 mr-2'>{place.name}</h3>
                             <Button variant='standard' onClick={(e,place_id=params.id)=>handleDeletePlace(e,place_id)}><AiFillDelete size={25}/></Button>          
                         </div>
+                        <Button variant='link' onClick={handleShowQR}> <ImQrcode size={25} /></Button>
                     </div>
                 </Col>
                 
@@ -111,7 +131,7 @@ const Place = () => {
                         <MenuForm finishTask={finishTask} />
                     </div>
                 </Col>       
-                <Col md={8}>
+                <Col md={6}>
                     {
                         categories.map(category => (
                             <section key={category.id}>
@@ -129,6 +149,8 @@ const Place = () => {
                     }
                 </Col>
             </Row>
+            
+            <QRCodeMenu show={qrCode} handleCloseQR={handleCloseQR} place={place} handleIncreaseTables={handleIncreaseTables} handleDecreaseTables={handleDecreaseTables} />
         </section>
      )
 }

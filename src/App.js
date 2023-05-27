@@ -32,6 +32,7 @@ import PrivateRoute from './privateroutes/PrivateRoute'
 import Places from './qrmenu/Places'
 import Home from './core/Home'
 import Place from './qrmenu/Place'
+import FinalMenu from './qrmenu/FinalMenu'
 
 const App = () => {
     return ( 
@@ -65,6 +66,8 @@ const App = () => {
                         <Route path='/' element={<Home />} />
                         <Route path='/places' element={<PrivateRoute> <Places/> </PrivateRoute>} />
                         <Route path='/places/:id' element={<PrivateRoute> <Place/> </PrivateRoute>} />
+                        <Route path="/menu/:place/:table" element={ <FinalMenu /> } />
+                        
 
                     </Routes>
                 </Layout>

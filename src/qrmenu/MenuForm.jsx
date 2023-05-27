@@ -37,7 +37,6 @@ const MenuForm = ({item={},itemCategoryName='',finishTask}) => {
         finishTask()
     }
 
-
     const handleAddOrUpdateMenuItems = async(e,place,category,name,description,price,image,available) => {
         e.preventDefault()
         console.log(place,category,name,description,price,image,available)

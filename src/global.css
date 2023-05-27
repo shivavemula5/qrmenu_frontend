@@ -77,8 +77,8 @@
     margin-bottom: 1.5rem;
 }
 .menuItem img{
-    width: 250px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     background-size: cover ;
 }
 .menuItem .body{
@@ -105,4 +105,107 @@
 }
 .categoryHeader h3{
     margin-right: 1rem;
+}
+
+.handleTables{
+    display: flex;
+}
+.handleAddButton1 {
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+}
+.menu img , .mainMenu .category img{
+    height: 130px;
+    width: 130px;
+    border-radius: 10%;
+}
+.mainMenu .heading h3{
+    margin-left : 15%;
+    margin-bottom:1rem;
+}
+.mainMenu .singleCategory {
+    display: flex;
+    flex-direction: column;
+}
+.mainMenu .category {
+    padding: .5rem;
+    width: 70%;
+    margin : 0 auto;
+    display: flex;
+}
+.mainMenu .body{
+    padding: .5rem;
+    margin-left: 1rem;
+}
+.mainMenu .category .image{
+    margin-right : 1rem;
+}
+.mainMenu .price{
+    font-size: 1.25rem;
+}
+.mainMenu .increaseDecrease{
+    display: flex;
+}
+.mainMenu .increase , .mainMenu .count{
+    margin-right: 1rem;
+    font-weight: bold;
+}
+.cart{
+    position: fixed;
+    top:35rem;
+    right : 7rem;
+}
+.cartSymbol {
+    background-color: white;
+    outline: none;
+}
+.mainCart{
+    background-color: white;
+}
+.cartCount{
+    position: absolute;
+    top: 0;
+    right: .1;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+.modalTitle {
+    margin: .5rem 45%;
+}
+.mainModal {
+    background-color: #D9D9D9;
+}
+.order{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: #F2F2F2;
+    padding: 1rem;
+    margin : 1rem auto;
+}
+.orderItem {
+    display: flex;
+    justify-content: space-between;
+}
+.itemNameAndPrice {
+    display: flex;
+    flex-direction: column;
+}
+.itemQuantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+.goBack{
+    position: fixed;
+    right : 10rem;
+    top : 30rem;
+    border-radius: 50% !important;
+}
+.crossIcon {
+    border-radius: 50%;
 }

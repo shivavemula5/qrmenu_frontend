@@ -206,6 +206,35 @@ const AuthProvider= (props) => {
         return menuitem_id   
     }
 
+    const IncreaseTables = async(place_id,place_name,place_image,tables)=>{
+        const path = `/places/${place_id}/`
+        const method = 'PUT'
+        const data = {'name':place_name,'image':place_image,'number_of_tables':tables}
+        const message = await Request(path,method,data)
+        if(handleError(message))
+            return 
+        return message 
+    }
+
+    const DecreaseTables = async(place_id,place_name,place_image,tables)=>{
+        const path = `/places/${place_id}/`
+        const method = 'PUT'
+        const data = {'name':place_name,'image':place_image,'number_of_tables':tables}
+        const message = await Request(path,method,data)
+        if(handleError(message))
+            return 
+        return message 
+    }
+
+    const Menu = async(place_id) => {
+        const path = `/menu/${place_id}/`
+        const method = 'GET'
+        const message = await Request(path,method)
+        if(handleError(message))
+            return 
+        return message 
+    }
+
     const authValue = {
         token,
         name,
@@ -226,6 +255,9 @@ const AuthProvider= (props) => {
         DeletePlace,
         DeleteCategory,
         DeleteMenuItem,
+        IncreaseTables,
+        DecreaseTables,
+        Menu,
     }
 
     return ( 

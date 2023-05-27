@@ -9,6 +9,7 @@ const Places = () => {
 
     const [show,setShow] = useState(false)
     const [places, setPlaces] = useState([])
+
     const {authValue} = useContext(AuthContext)
     const navigate = useNavigate()
 
@@ -34,7 +35,6 @@ const Places = () => {
         }
         response()
     },[])
-
 
     return ( 
         <section>
